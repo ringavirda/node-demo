@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch via Yarn",
+      "request": "launch",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["start-ts"],
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "console": "integratedTerminal"
+    }
+  ]
+}
