@@ -152,7 +152,9 @@ export class Executor {
       selectors: ["help", "h"],
       actionAsync: async (_: CArgs) => {
         this._cli.echoSuccess("Supported command signatures:");
-        this._cli.echo("  - ls, g, gr, a, rm, ch, h");
+        this._commands
+          .map((c) => c.selectors.join(", "))
+          .forEach((s) => this._cli.echo(` - ${s}`));
       },
     },
   ];
