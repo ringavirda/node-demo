@@ -59,7 +59,7 @@ export class CLI {
     this.echo(chalk.red(`${chalk.underline("Err:")} ${message}`));
   }
   public echoTitle(message: string): void {
-    this.echo(chalk.bold.magenta(message));
+    this.echo(chalk.bold.red(message));
   }
   public echoPrincess(pr: Princess) {
     this.echo(
