@@ -1,6 +1,6 @@
 export interface StartRequest {
-  helloMessage: string;
-  goodbyMessage: string;
+  helloLines: Array<string>;
+  goodbyLines: Array<string>;
   promptSymbol: string;
   quitSelectors: Array<string>;
 }

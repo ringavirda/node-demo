@@ -14,7 +14,7 @@ class App {
   ) {}
 
   public async run(request: StartRequest) {
-    this._cli.echoTitle(request.helloMessage);
+    request.helloLines.forEach((l) => this._cli.echoTitle(l));
     await this._loader.loadAsync();
 
     while (true) {
@@ -23,7 +23,7 @@ class App {
 
       if (request.quitSelectors.includes(cArgs.selector)) {
         await this._loader.saveAsync();
-        this._cli.echoTitle(request.goodbyMessage);
+        request.goodbyLines.forEach((l) => this._cli.echoTitle(l));
         this._cli.close();
         return;
       }
@@ -39,8 +39,11 @@ class App {
 
 const app = container.resolve(App);
 await app.run({
-  helloMessage: `Princess selector CLI!\nUse (help) to see command list, or (q) to exit.`,
-  goodbyMessage: "Fallenstar is always watching...",
+  helloLines: [
+    "Princess selector CLI!",
+    "Use (help) to see command list, or (q) to exit.",
+  ],
+  goodbyLines: ["Fallenstar is always watching..."],
   promptSymbol: "->",
   quitSelectors: ["exit", "quit", "q"],
 });
